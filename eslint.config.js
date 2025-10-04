@@ -48,5 +48,6 @@ export default defineConfig([
       ],
       '@typescript-eslint/no-unused-vars': 'error',
     },
+    ignores: ['node_modules/', 'dist/', 'coverage/', 'public/', '*.min.js'],
   },
 ])
