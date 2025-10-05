@@ -1,5 +1,5 @@
 function App() {
-  return <div />
+  return <div>Playground App</div>
 }
 
 export default App
