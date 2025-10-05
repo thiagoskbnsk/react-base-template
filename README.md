@@ -1,73 +1,122 @@
-# React + TypeScript + Vite
+# React Base Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This template provides a solid foundation for modern React applications with industry-standard tooling and best practices built-in.
 
-Currently, two official plugins are available:
+### 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⚡ **Vite** - Lightning fast build tool with HMR
+- ⚛️ **React 19** - Latest React with concurrent features
+- 🔧 **TypeScript** - Full type safety and modern JS features
+- 🎨 **Tailwind CSS v4** - Utility-first CSS with the new CSS-based configuration
+- 🧪 **Jest + Testing Library** - Comprehensive testing setup
+- 📏 **ESLint + Prettier** - Code linting and formatting
+- 🐺 **Husky + lint-staged** - Pre-commit hooks for code quality
+- 📦 **SWC** - Fast TypeScript/JSX compilation
+- 🔍 **Dependency Management** - Built-in dependency checking and updates
 
-## React Compiler
+### Prerequisites
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- Node.js 18+ and pnpm (recommended)
 
-## Expanding the ESLint configuration
+### 🔄 Template Usage
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+To use this as a template for new projects:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. **Use GitHub template feature** or clone this repository
+2. **Install dependencies** running `pnpm install --frozen-lockfile` (to avoid issues with diff libs version)
+3. **Update package.json** with your project details:
+   - Change `name` field
+   - Update `version`
+   - Modify `description`
+4. **Update README.md** with project-specific information
+5. **Configure environment variables** as needed
+6. **Start running your application!** - `pnpm dev` -> Navigate to `http://localhost:5173`
+7. **Happy coding**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📜 Available Scripts
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Development
+
+- `pnpm dev` - Start development server with HMR
+- `pnpm build` - Build for production
+- `pnpm preview` - Preview production build locally
+
+### Code Quality
+
+- `pnpm lint` - Run ESLint
+- `pnpm lint:fix` - Run ESLint with automatic fixes
+- `pnpm format` - Format code with Prettier
+- `pnpm format:check` - Check code formatting
+- `pnpm type-check` - Run TypeScript type checking
+- `pnpm lint:all:fix` - Run type-check, lint, and format together
+
+### Testing
+
+- `pnpm test` - Run tests
+- `pnpm test:watch` - Run tests in watch mode
+- `pnpm test:coverage` - Run tests with coverage reports
+
+### Dependencies
+
+- `pnpm deps:check` - Check for unused dependencies
+- `pnpm deps:update` - Update dependencies to latest versions
+
+### Git Hooks
+
+- `pnpm prepare` - Set up Husky git hooks
+
+### Path Aliases
+
+The template includes `@/*` alias pointing to `src/*`. Add more aliases in:
+
+- `tsconfig.app.json` (TypeScript)
+- `vite.config.mjs` (Vite bundler)
+- `jest.config.ts` (Jest testing)
+
+### Environment Variables
+
+Create `.env` files for environment-specific configuration:
+
+```env
+VITE_APP_TITLE=My React App
+VITE_API_URL=http://localhost:3001
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🔧 IDE Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### VS Code Extensions (Recommended)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+- **Tailwind CSS IntelliSense** - Tailwind class suggestions
+- **TypeScript Importer** - Auto import TypeScript modules
+- **Jest** - Test runner integration
+
+### Settings
+
+The template works out-of-the-box with VS Code. Consider adding these settings:
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
 ```
+
+[here you can explore more about my VSCode settings & extensions](https://gist.github.com/thiagoskbnsk/1d6027b1ba4fe26f33fd1e039ec7085b)
+
+## 🤝 Contributing
+
+This is a personal template, but feel free to:
+
+1. Fork the repository
+2. Create your feature branch
+3. Make your changes
+4. Ensure all tests pass and code is properly formatted
+5. Submit a pull request
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).

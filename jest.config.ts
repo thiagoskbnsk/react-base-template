@@ -26,11 +26,6 @@ const config: Config = {
   ],
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
-  globals: {
-    'ts-jest': {
-      useESM: true,
-    },
-  },
 }
 
 export default config
