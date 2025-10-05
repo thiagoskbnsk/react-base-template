@@ -65,6 +65,33 @@ To use this as a template for new projects:
 
 - `pnpm prepare` - Set up Husky git hooks
 
+## 🔄 Continuous Integration (CI)
+
+The template includes a **GitHub Actions workflow** that automatically runs code quality checks and tests on every pull request and push to main.
+
+### 📋 What the CI Pipeline Does
+
+The CI workflow (`.github/workflows/ci.yml`) automatically:
+
+1. **📦 Dependencies** - Installs dependencies with pnpm (cached for speed)
+2. **🔍 Type Check** - Runs TypeScript compiler (`pnpm run type-check`)
+3. **📏 Linting** - Checks code quality with ESLint (`pnpm run lint`)
+4. **✨ Formatting** - Validates code formatting with Prettier (`pnpm run format:check`)
+5. **🧪 Testing** - Runs Jest tests with coverage (`pnpm test:coverage`)
+6. **🏗️ Build** - Ensures production build succeeds (`pnpm run build`)
+
+### 🔒 Branch Protection (Recommended)
+
+For production repositories, enable branch protection rules:
+
+1. Go to **Repository Settings > Branches**
+2. Add rule for `main` branch:
+   - ✅ Require pull request before merging
+   - ✅ Require status checks to pass (`ci` job)
+   - ✅ Require branches to be up to date
+
+This ensures **no code reaches main** without passing all quality checks!
+
 ### Path Aliases
 
 The template includes `@/*` alias pointing to `src/*`. Add more aliases in:
